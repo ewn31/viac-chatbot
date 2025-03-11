@@ -3,21 +3,21 @@ Welcome,"text:Hi! Welcome to Aunty Queen hotline. I’m here to answer your ques
 text:If you’re here to learn about contraceptives and abortion, you’ve come to the right place. Here i provide accurate and confidential information on contraceptives and abortion!;
 text:what information do you need?
 1. Contraceptives
-2. Abortion",1:contraceptive-info;2:abortion
+2. Abortion",1:contraceptive-intro;2:abortion-intro
 contraceptive-intro,"text:Contraceptive. Before we talk about contraceptives! What is unplanned pregnancy?;
 text:Unplanned pregnancy is a pregnancy that occurs earlier than desire. Contraception is the act of preventing pregnancy. While contraceptives could be a device, a medication, a procedure or a behaviour. To better understand read!
 1. How to do a pregnacy test.
-2. Chossing a contraceptives; ",1:pregnancy-test;2:choosing-contraceptives
+2. choosing a contraceptives; ",1:pregnancy-test;2:choosing-contraceptives
 pregnancy-test,"text:How to do a pregancy test . Here’s a summary of the three common methods to take a pregnancy test;
 text:a. Use a dropper – Collect urine in a clean cup and use a dropper to place a few drops onto the test strip or into the test well.;
 text:b. Direct urine stream – Hold the test strip directly in your urine stream while you pee, following the test kit instructions.;
 text:c. Dip the test strip – Collect urine in a clean cup and dip the test strip into the urine for the specified time as per the test kit instructions.",
-choosing-contraceptive,"text:2. Choosing the right contraceptive method depends on various factors, including your health, lifestyle, and personal preferencesThere are different types of contraceptives available for both. 
+choosing-contraceptives,"text:2. Choosing the right contraceptive method depends on various factors, including your health, lifestyle, and personal preferencesThere are different types of contraceptives available for both. 
 Enter 1-3 below  to know more
 1. women
 2. men
 3 adolescents",1:women-contraceptive-options;2:men-contraceptive-options;3:adolescents-contraceptives
-adolescents-contraceptive,"text:3 adolescents – Yes! Most contraceptive methods are safe for adolescents. Options like pills, injectables, and condoms are recommended. Adolescents can also access contraceptives confidentially in youth-friendly centers.",
+adolescents-contraceptives,"text:3 adolescents – Yes! Most contraceptive methods are safe for adolescents. Options like pills, injectables, and condoms are recommended. Adolescents can also access contraceptives confidentially in youth-friendly centers.",
 women-contraceptive-options,"text:Women – There are
 1. Non hormonal contraceptives
 2. Hormonal contraceptives.
@@ -42,37 +42,37 @@ text:To know more about surgical abortion, enter the corresponding number –
 2. Manual Vacuum Aspiration",1:dilation-evacuation;2:MVA;
 taking-miso-mife,"text:1. How  to take Miso an Mife 
 Mifepristone – a single tablet is swallowed with a glass of water. 24 hours after,
-Misoprostol – 4 pills a placed under the tongue and kept for 30mins. Then swallowed with water.",
+Misoprostol – 4 pills a placed under the tongue and kept for 30mins. Then swallowed with water.;text:Enter 1 for other information relating to mediaction abortion. Enter 2 for information on surgical abortion",1:medication-abortion;2:surgical-abortion
 signs-after-pills,"text:2.  Signs after taking the pills, you may experience cramps, bleeding(Bleeding can last from a few days to 3 weeks depending on the your system and age of the pregnancy.), and nausea, similar to a heavy period. 
-It’s important to follow instructions carefully to ensure safety.",
+It’s important to follow instructions carefully to ensure safety.;text:Enter 1 for other information relating to mediaction abortion. Enter 2 for information on surgical abortion",1:medication-abortion;2:surgical-abortion
 warning-signs-pills,"text:3. Warning signs  after taking the pills 
 Heavy Bleeding – Soaking through two or more sanitary pads per hour 
 Severe Pain – Intense abdominal or pelvic pain not relieved by medication.
 Fever – A fever of 100.4°F (38°C) or higher lasting more than 24 hours.
 Nausea, Vomiting, or Diarrhea – These symptoms lasting more than 24 hours.
-Foul-Smelling Discharge – Any unusual or foul-smelling vaginal discharge.",
+Foul-Smelling Discharge – Any unusual or foul-smelling vaginal discharge.;text:Enter 1 for other information relating to mediaction abortion. Enter 2 for information on surgical abortion",1:medication-abortion;2:surgical-abortion
 getting-pills,"text:4. Where you can get the pills
 You can access abortion pills through –
 Trusted clinics, healthcare providers and pharmacies with the help of AUNTY QUEEN
 Hotline through the counselor who provides safe abortion information and support.",
-having-chidren-after-abortion,"text:5. If you can have children after medical abortion !!. Abortion does not affect your ability to have children in the future. As long as the procedure is safe and performed correctly, your fertility will not be effected.
+having-children-after-abortion,"text:5. If you can have children after medical abortion !!. Abortion does not affect your ability to have children in the future. As long as the procedure is safe and performed correctly, your fertility will not be effected.
 1. when to start having sex after medical abortion with pills.
 Enter 1 for more information ",1:when-to-start-having-sex
 when-to-start-having-sex,"text:When you can start having sex after abortion with pills! You can begin having sex when you are ready. To prevent another unplanned pregnancy, use contraceptives.;
 text:Contraceptive's like pills, shot, patch, implant can be used immediately or up to 5 days and you are immediately protected. If started more than 5 days after using Misoprostol women will need to wait 7 days so it becomes effective.;
-text:A triathlon device can be inserted as soon as the abortion has been confirmed copper iod will be immediately effective hormonal ID if inserted within 7 days of abortion to be immediately effective it inserted more than 7 days after the abortion we may need to wait 7 days so it becomes effective.
-",
+text:A triathlon device can be inserted as soon as the abortion has been confirmed copper iod will be immediately effective hormonal ID if inserted within 7 days of abortion to be immediately effective it inserted more than 7 days after the abortion we may need to wait 7 days so it becomes effective.;text:Enter 1 for other information relating to mediaction abortion. Enter 2 for information on surgical abortion
+",1:medication-abortion;2:surgical-abortion
 dilation-evacuation,"text:Dilation and evacuation (D&E) – A surgical procedure that involves dilating the cervix and removing tissue from the uterus. Used for later stages of pregnancy.;
 text:The procedure is quick, usually completed within 10-15 minutes. You may feel mild discomfort, but pain management is available.",
 MVA,"text:2. Manual Vacuum aspiration (MVA) – A surgical procedure that involves gentle suction to remove tissues. recommended for pregnancies upto 12-14 weeks.;
 text:The procedure is quick, usually completed within 10-15 minutes. You may feel mild discomfort, but pain management is available.",
-hormonal-contraceptive,"text:2.Hormonal contraceptives – These are birth control methods that use hormones to prevent pregnancy and contains either estrogen and progesterone, or just progesterone. below are the various types for women.
+hormonal-contraceptives,"text:2.Hormonal contraceptives – These are birth control methods that use hormones to prevent pregnancy and contains either estrogen and progesterone, or just progesterone. below are the various types for women.
 1. Oral Pills,
 2. Injectables,
 3. IUD,
 4. Implants.
 Does one of this interest you? Enter the options' number",1:birth-control-pills;2:IUD;3:injectables;4:implants
-non-hormonal-contraceptive,"text:1. Non-Hormonal contraceptives – These are birth control methods that prevent pregnancy without affecting a woman's hormones
+non-hormonal-contraceptives,"text:1. Non-Hormonal contraceptives – These are birth control methods that prevent pregnancy without affecting a woman's hormones
 1. Permanent method
 2. Copper IUD
 3. Natural methods
@@ -87,15 +87,15 @@ condom-male,"text:1. Condom – A barrier method worn on the penis during interc
 Available over-the-counter at pharmacies and clinics.
 1. Learn more about condoms. 
 Enter 1 to read more",1:condom-indepth
-vasectomy,"text:Vasectomy – A permanent surgical procedure that prevents sperm from entering semen. Highly effective, but only suitable if you are sure about not wanting children in the future",
+vasectomy,"text:Vasectomy – A permanent surgical procedure that prevents sperm from entering semen. Highly effective, but only suitable if you are sure about not wanting children in the future.;text:Enter 1 for information on other male contraceptives",1:contraceptive-men
 withdrawal,"text:3. Withdrawal method – Pulling out the penis before ejaculation.
-Less effective as some sperm may still be released.
-",
+Less effective as some sperm may still be released.;text:Enter 1 for information on other male contraceptives
+",1:contraceptive-men
 condom-indepth,"text:Condoms are 85% effective with typical use (male condoms).
 How It Works – Prevents sperm from entering the uterus, offering both contraception and protection against  STIs.
 Enter 1 to learn more about its advantages and 2 about its /limitations",1:condom-advantages;2:condom-limitations
-condom-advantage,"text: 1. Advantages – No side effects, easily available, protects against infections (like HIV). ",
-condom-limitation,"text:2. limitations – No need to panic! If your condom burst  Here's what you can do –
+condom-advantages,"text: 1. Advantages – No side effects, easily available, protects against infections (like HIV). ",
+condom-limitations,"text:2. limitations – No need to panic! If your condom burst  Here's what you can do –
 Take an emergency contraceptive pill  as soon as possible (within 72 hours).
 If you're worried about infections, visit a clinic to ask about  post-exposure prophylaxis (PEP) for HIV prevention. 
 Consider getting tested for STIs in 2-3 weeks.",
@@ -136,10 +136,10 @@ If you miss two or more pills – Take the most recent missed pill, use condoms 
 breastfeeding-and-pills,"text:Yes, while breastfeeding, progestin-only methods (mini-pills, implants, injectables, IUDs) are safe for breastfeeding women, as they do not affect milk production.",
 permanent-contraceptives,"text:Permanent Contraceptives 
 For people who do not want any more children.  
-Female Sterilization (Tubal Ligation) – Involves blocking or cutting the fallopian tubes to prevent eggs from reaching the uterus.",
-iud,"text:2. Intrauterine Device (IUD) – 99% effective. 
+Female Sterilization (Tubal Ligation) – Involves blocking or cutting the fallopian tubes to prevent eggs from reaching the uterus. Enter 1 to see other non-hormonal contraceptives. Enter 2 to see hormonal  contraceptives.",1:non-hormonal-contraceptives;2:hormonal-contraceptives
+IUD,"text:2. Intrauterine Device (IUD) – 99% effective. 
 Copper IUD – Effective for up to 10 years, prevents fertilization by releasing copper, which is toxic to sperm. 
-Possible Side Effects  – Cramping after insertion, irregular periods (with copper IUD), spotting.",
+Possible Side Effects  – Cramping after insertion, irregular periods (with copper IUD), spotting. ",
 natural-methods,"text:3. Natural Methods – Menstrual cycle, tracking fertility. this needs close monitoring  . To know how to calulate the menstrual cycle click the link below ",
 condom,"text:4. Condom (Short term) – A barrier method worn on the penis during intercourse.
 Protects against STIs and pregnancy.

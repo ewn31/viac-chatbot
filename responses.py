@@ -26,13 +26,13 @@ def getResponses(csv_file_path, debug = False):
                         options.append({'input':input, 'node_name': node_name})
                 responses[response_objects['name']]={'response':response, 'options':options}
         return responses
-    except(e):
-        print(f'Error: {e}')
+    except FileNotFoundError:
+        print('Error while processing csv file')
 
 
 
 if __name__ == '__main__':
-    csv_file_path = './responses.csv'
+    csv_file_path = './files/responses.csv'
     responses =  getResponses(csv_file_path)
     print(responses)
 
