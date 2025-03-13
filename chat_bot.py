@@ -106,6 +106,7 @@ class Bot:
             if len(self.get_memory()) == 0:
                 msgs = get_messages(self.current_node)
                 self.add_to_memory('Welcome')
+                self.save_user()
             elif (message == 'back' or message == '0') and len(self.get_memory()) > 1:
                 node_name = self.previous_node()
                 self.current_node = self.get_response(node_name)
@@ -147,6 +148,8 @@ class Bot:
                 res = send_message(self.user_id, msg)
                 if res['error']:
                     self.current_node = self.previous_node()
+            self.save_memory()
+
                 
 
     def get_response(self, response_id ):
@@ -171,13 +174,14 @@ class Bot:
             return None
     
     def save_memory(self):
-       db.save_memory(self.user_id, self.memory)
+       db.save_memory(self.user_id, "/".join(self.memory))
     
     def retrieve_memory(self):
-        db.get_memory(self.user_id)
+        memory_string = db.get_memory(self.user_id)
+        return memory_string.split('/')
     
     def save_user(self):
-        db.save_user(self.user_id)
+        db.save_user(self.user_id, "/".join(self.memory))
         
        
         

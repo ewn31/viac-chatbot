@@ -1,11 +1,14 @@
 import sqlite3
 
 dbname =  'ChatBot'
-con =  sqlite3.connect(dbname)
+#multiple threads can write using same connection can lead to unwanted modifications
+#will have to serialize in the future
+con =  sqlite3.connect(dbname, check_same_thread=False)
 if con:
     print('Database connected')
 else:
     print('Failed to connect to database')
+
         
 def create_table(dbname):
     cur = con.cursor()
@@ -13,6 +16,8 @@ def create_table(dbname):
     print(f'Table memory created in database {dbname}')
     #cur.execute('CREATE TABLE users(user_id)')
     cur.close()
+
+create_table(dbname)
     
 def save_user(user_id, memory):
     cur = con.cursor()
