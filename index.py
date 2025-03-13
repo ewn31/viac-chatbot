@@ -48,12 +48,21 @@ def handle_new_messages():
                 continue
 
             response_type = message.get('type', {}).strip().lower()
+            print(response_type)
             user_id = message.get('chat_id')
 
             if response_type == 'text':
                 user_response = message.get('text', {}).get('body', '').strip().lower()
                 print(user_response)
                 handler(bots, user_response, user_id)
+            elif response_type == 'reply':
+                reply =  message['reply']
+                if reply['type'] == 'buttons-reply':
+                    button_id = reply['buttons_reply']['id']
+                    print(button_id)
+                    _, user_response = button_id.split(':')
+                    print(user_response)
+                    handler(bots, user_response, user_id)
             else:
                 user_response = None
                 handler(bots, user_response, user_id)

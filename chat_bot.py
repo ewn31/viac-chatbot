@@ -2,6 +2,7 @@ import os
 import dotenv
 import requests
 from requests_toolbelt.multipart.encoder import MultipartEncoder
+import db
 
 dotenv.load_dotenv()
 
@@ -65,9 +66,9 @@ class Bot:
                 elif msg['type'].strip('\n') == 'image':
                     msgs.append({'payload':{'caption': msg['caption'], 'media': f'files/images/{msg.filename}'}, 'endpoint':f'messages/{msg['type'].strip('\n')}'})
                 elif msg['type'].strip('\n') == 'document':
-                    msgs.append({'payload':{'caption': msg['caption'], 'media': f'files/images/{msg.filename}'}, 'endpoint':f'messages/{msg['type'].strip('\n')}'})
+                    msgs.append({'payload':{'caption': msg['caption'], 'media': f'files/documents/{msg.filename}'}, 'endpoint':f'messages/{msg['type'].strip('\n')}'})
                 elif msg['type'].strip('\n') == 'video':
-                    msgs.append({'payload':{'caption': msg['caption'], 'media': f'files/images/{msg.filename}'}, 'endpoint':f'messages/{msg['type'].strip('\n')}'})
+                    msgs.append({'payload':{'caption': msg['caption'], 'media': f'files/videos/{msg.filename}'}, 'endpoint':f'messages/{msg['type'].strip('\n')}'})
             if 'options' in response:
                 btn = {'payload':{'body': {'text':'options'}, 
                                     'action':{'buttons': []}, 'type':'button'}, 
@@ -79,7 +80,7 @@ class Bot:
                                         'title': option['input'],
                                         'id': option['input']
                                         })
-                if message != 'Welcome':
+                if len(self.get_memory()) > 1:
                     btn['payload']['action']['buttons'].append({
                                         'type': 'quick_reply',
                                         'title': 'back',
@@ -94,7 +95,7 @@ class Bot:
             payload['to'] = user_id
             res = send_whapi_request(endpoint, payload)
             print(f'Response from Whapi: {res}')
-            return 'OK',200
+            return res
             
         
         #payload = {}
@@ -106,11 +107,11 @@ class Bot:
                 msgs = get_messages(self.current_node)
                 self.add_to_memory('Welcome')
             elif (message == 'back' or message == '0') and len(self.get_memory()) > 1:
-                print('Memory: ',self.get_memory())
                 node_name = self.previous_node()
                 self.current_node = self.get_response(node_name)
-                print('Memory: ', self.get_memory())
                 msgs = get_messages(self.current_node)
+            elif self.get_memory()[-1] == 'end':
+                msgs = None;
             else:
                 options = self.current_node['options']
                 if len(options) == 0: # This is a leaf node
@@ -143,13 +144,17 @@ class Bot:
         if msgs is not None:
             print(msgs)
             for msg in msgs:
-                send_message(self.user_id, msg)
+                res = send_message(self.user_id, msg)
+                if res['error']:
+                    self.current_node = self.previous_node()
+                
 
     def get_response(self, response_id ):
         try:
             return self.responses[response_id]
         except KeyError:
             print(f'{response_id} not in response')
+            return None
             
 
     def add_to_memory(self, option_id):
@@ -166,5 +171,15 @@ class Bot:
             return None
     
     def save_memory(self):
-        pass
+       db.save_memory(self.user_id, self.memory)
+    
+    def retrieve_memory(self):
+        db.get_memory(self.user_id)
+    
+    def save_user(self):
+        db.save_user(self.user_id)
+        
+       
+        
+        
     
