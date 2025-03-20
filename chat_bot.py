@@ -47,10 +47,20 @@ class Bot:
         self.debug = debug
         self.user_id = user_id
         self.memory = []
-        self.welcome = True
         self.responses = responses
-        self.current_node = responses['Welcome']
-        self.next_node_id = None
+        #self.current_node = responses['Welcome']
+        self.current_node = {}
+        
+        if not db.user_exist(user_id):
+            print('User does not exist')
+            print('User from db: ',db.user_exist(user_id))
+            self.save_user()
+        else:
+            retrieved_mem = self.retrieve_memory()
+            self.memory = retrieved_mem
+            print('Memory: ',self.memory)
+            self.current_node = self.get_response(self.memory[-1])
+            print('Current Node: ',self.current_node)
 
 
     def send_response(self, message):
@@ -102,16 +112,17 @@ class Bot:
         #payload['to'] = self.user_id
         if message:
             print(self.current_node)
-            print(f'Current Node Options:{self.current_node['options']}\n')
+            #print(f'Current Node Options:{self.current_node['options']}\n')
             if len(self.get_memory()) == 0:
+                self.current_node = self.get_response('Welcome')
                 msgs = get_messages(self.current_node)
                 self.add_to_memory('Welcome')
-                self.save_user()
+                #self.save_user()
             elif (message == 'back' or message == '0') and len(self.get_memory()) > 1:
                 node_name = self.previous_node()
                 self.current_node = self.get_response(node_name)
                 msgs = get_messages(self.current_node)
-            elif self.get_memory()[-1] == 'end':
+            elif self.get_memory()[-1] == 'end' or self.get_memory()[-1] == 'councellor':
                 msgs = None;
             else:
                 options = self.current_node['options']
@@ -146,7 +157,9 @@ class Bot:
             print(msgs)
             for msg in msgs:
                 res = send_message(self.user_id, msg)
-                if res['error']:
+                print('res: ',res)
+                state = res.get('error', 'sent')
+                if state == 'error':
                     self.current_node = self.previous_node()
             self.save_memory()
 
@@ -174,10 +187,13 @@ class Bot:
             return None
     
     def save_memory(self):
-       db.save_memory(self.user_id, "/".join(self.memory))
+        print('in save_memory')
+        print('Memory: ',self.memory, "/".join(self.memory))
+        db.save_memory(self.user_id, "/".join(self.memory))
     
     def retrieve_memory(self):
-        memory_string = db.get_memory(self.user_id)
+        [memory_string] = db.get_memory(self.user_id)
+        print('Memory String: ',memory_string)
         return memory_string.split('/')
     
     def save_user(self):

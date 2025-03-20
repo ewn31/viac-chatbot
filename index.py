@@ -56,13 +56,17 @@ def handle_new_messages():
                 print(user_response)
                 handler(bots, user_response, user_id)
             elif response_type == 'reply':
-                reply =  message['reply']
-                if reply['type'] == 'buttons-reply':
-                    button_id = reply['buttons_reply']['id']
-                    print(button_id)
+                reply =  message.get('reply')
+                print('reply-object: ', reply.get('type')=='buttons_reply' )
+                if reply.get('type') == 'buttons_reply':
+                    buttons_reply = reply.get('buttons_reply')
+                    button_id = buttons_reply.get('id')
+                    print('button_id: ',button_id)
                     _, user_response = button_id.split(':')
                     print(user_response)
                     handler(bots, user_response, user_id)
+            elif response_type == 'unknown':
+                continue
             else:
                 user_response = None
                 handler(bots, user_response, user_id)
